@@ -43,3 +43,11 @@ C:\Code\Dynamic Sites\Sitecore.SharedSource.DynamicSites\bin\Sitecore.Kernel.dll
 C:\Code\Dynamic Sites\Sitecore.SharedSource.DynamicSites\obj\Release\SharedSource.Sitecore.DynamicSites.dll
 C:\Code\Dynamic Sites\Sitecore.SharedSource.DynamicSites\obj\Release\SharedSource.Sitecore.DynamicSites.pdb
 C:\Code\Dynamic Sites\Sitecore.SharedSource.DynamicSites\obj\Release\Sitecore.SharedSource.DynamicSites.csprojResolveAssemblyReference.cache
+C:\Sagepath-Git\Sitecore.SharedSource.DynamicSites\Sitecore.SharedSource.DynamicSites\bin\SharedSource.Sitecore.DynamicSites.dll
+C:\Sagepath-Git\Sitecore.SharedSource.DynamicSites\Sitecore.SharedSource.DynamicSites\bin\SharedSource.Sitecore.DynamicSites.pdb
+C:\Sagepath-Git\Sitecore.SharedSource.DynamicSites\Sitecore.SharedSource.DynamicSites\bin\SharedSource.Sitecore.ValueListField.dll
+C:\Sagepath-Git\Sitecore.SharedSource.DynamicSites\Sitecore.SharedSource.DynamicSites\bin\Sitecore.Kernel.dll
+C:\Sagepath-Git\Sitecore.SharedSource.DynamicSites\Sitecore.SharedSource.DynamicSites\bin\Newtonsoft.Json.dll
+C:\Sagepath-Git\Sitecore.SharedSource.DynamicSites\Sitecore.SharedSource.DynamicSites\obj\Release\Sitecore.SharedSource.DynamicSites.csprojResolveAssemblyReference.cache
+C:\Sagepath-Git\Sitecore.SharedSource.DynamicSites\Sitecore.SharedSource.DynamicSites\obj\Release\SharedSource.Sitecore.DynamicSites.dll
+C:\Sagepath-Git\Sitecore.SharedSource.DynamicSites\Sitecore.SharedSource.DynamicSites\obj\Release\SharedSource.Sitecore.DynamicSites.pdb
