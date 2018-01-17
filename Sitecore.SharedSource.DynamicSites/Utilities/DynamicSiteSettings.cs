@@ -4,6 +4,7 @@ using Sitecore.Data.Items;
 using Sitecore.SharedSource.DynamicSites.Caching;
 using Sitecore.SharedSource.DynamicSites.Items.BaseTemplates;
 using Sitecore.SharedSource.DynamicSites.Items.ModuleSettings;
+using static Sitecore.SharedSource.DynamicSites.Utilities.DynamicSiteManager;
 
 namespace Sitecore.SharedSource.DynamicSites.Utilities
 {
@@ -16,6 +17,8 @@ namespace Sitecore.SharedSource.DynamicSites.Utilities
         private const string DefaultSitename = "dynamicsites";
         private const string DefaultSettingsItemPath = "/sitecore/system/Modules/Dynamic Sites/Dynamic Site Settings";
         private const string CacheKeySetting = "DynamicSites.SiteCache";
+        private const string FallbackDatabaseSetting = "DynamicSites.FallbackDatabase";
+        private const string DefaultFallbackDatabaseSetting = "master";
         private const string AutoPublishSetting = "DynamicSites.AutoPublish";
 
         private static string MaxCacheSize => Settings.GetSetting(MaxCacheSetting, "50MB");
@@ -28,7 +31,7 @@ namespace Sitecore.SharedSource.DynamicSites.Utilities
 
         private static string SettingsItemPath => Settings.GetSetting(ItemPathSetting, DefaultSettingsItemPath);
 
-        public static bool IsInitialized => DynamicSiteManager.SettingsInitialized();
+        public static bool IsInitialized { get; } = SettingsInitialized();
 
         public static string CacheKey => CacheKeySetting;
 
@@ -39,7 +42,7 @@ namespace Sitecore.SharedSource.DynamicSites.Utilities
 
         public static Item SitesFolder => GetSettingsItem?.SitesFolder.Item;
 
-        public static Database GetCurrentDatabase => Context.ContentDatabase ?? Context.Database ?? Database.GetDatabase("master");
+        public static Sitecore.Data.Database GetCurrentDatabase => Context.ContentDatabase ?? Context.Database ?? Database.GetDatabase(Settings.GetSetting(FallbackDatabaseSetting, DefaultFallbackDatabaseSetting));
 
         public static SiteCache GetSiteCache => new SiteCache(StringUtil.ParseSizeString(MaxCacheSize));
     }
