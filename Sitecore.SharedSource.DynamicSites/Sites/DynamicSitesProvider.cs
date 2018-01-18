@@ -16,7 +16,7 @@ namespace Sitecore.SharedSource.DynamicSites.Sites
     {
         private string _dynamicConfigPath;
         private SiteCollection _sites;
-        private List<KeyValuePair<string, Sitecore.Sites.Site>> _dynamicSiteDictionary;
+        private List<KeyValuePair<string, Site>> _dynamicSiteDictionary;
  
         public override Site GetSite(string siteName)
         {

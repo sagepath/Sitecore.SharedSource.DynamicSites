@@ -5,7 +5,7 @@ namespace Sitecore.SharedSource.DynamicSites.Fields.SimpleTypes
 {
 	internal class CustomTextField : BaseCustomField<TextField>
 	{
-		public CustomTextField(Sitecore.Data.Items.Item item, TextField field)
+		public CustomTextField(Item item, TextField field)
 			: base(item, field)
 		{
 		}

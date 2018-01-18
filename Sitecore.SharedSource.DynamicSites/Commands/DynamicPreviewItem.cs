@@ -67,7 +67,7 @@ namespace Sitecore.SharedSource.DynamicSites.Commands
                 webSiteUrl["sc_itemid"] = itemId;
                 webSiteUrl["sc_mode"] = "preview";
                 webSiteUrl["sc_lang"] = contentItem.Language.ToString();
-                DeviceSimulationUtil.DeactivateSimulators();
+                DeviceSimulationUtil.DeacitvateSimulators();
                 SheerResponse.Eval("window.open('" + webSiteUrl + "', '_blank')");
             }
         }
