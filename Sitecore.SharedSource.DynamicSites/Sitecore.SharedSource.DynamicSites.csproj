@@ -54,6 +54,7 @@
     <Compile Include="Caching\SiteCacheItem.cs" />
     <Compile Include="Events\ItemHandler.cs" />
     <Compile Include="Events\ItemRenamedEventArgs.cs" />
+    <Compile Include="Events\PublishEndRemoteHandler.cs" />
     <Compile Include="Fields\BaseCustomField.cs" />
     <Compile Include="Fields\Datasources\Databases.cs" />
     <Compile Include="Fields\Datasources\Inherits.cs" />
@@ -75,6 +76,17 @@
     <Compile Include="Utilities\ExtensionMethods.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+copy /y "$(ProjectDir)bin\SharedSource.Sitecore.DynamicSites.dll" "C:\sitecore\gstar\Website\bin"
+copy /y "$(ProjectDir)bin\SharedSource.Sitecore.DynamicSites.pdb" "C:\sitecore\gstar\Website\bin"
+copy /y "$(ProjectDir)bin\SharedSource.Sitecore.DynamicSites.dll" "C:\sitecore\gstarcd\Website\bin"
+copy /y "$(ProjectDir)bin\SharedSource.Sitecore.DynamicSites.pdb" "C:\sitecore\gstarcd\Website\bin"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
