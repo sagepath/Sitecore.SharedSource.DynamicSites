@@ -46,6 +46,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -53,8 +54,9 @@
     <Compile Include="Caching\SiteCache.cs" />
     <Compile Include="Caching\SiteCacheItem.cs" />
     <Compile Include="Events\ItemHandler.cs" />
+    <Compile Include="Events\ItemRemoteHandler.cs" />
     <Compile Include="Events\ItemRenamedEventArgs.cs" />
-    <Compile Include="Events\PublishEndRemoteHandler.cs" />
+    <Compile Include="Events\RefreshDynamicSitesHandler.cs" />
     <Compile Include="Fields\BaseCustomField.cs" />
     <Compile Include="Fields\Datasources\Databases.cs" />
     <Compile Include="Fields\Datasources\Inherits.cs" />

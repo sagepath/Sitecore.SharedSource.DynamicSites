@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using Sitecore.Collections;
 using Sitecore.Configuration;
 using Sitecore.Data;
@@ -82,6 +83,7 @@ namespace Sitecore.SharedSource.DynamicSites.Utilities
 
         public static bool HasBaseTemplate([NotNull] Item item)
         {
+            if (item == null) return false;
             var template = DynamicSiteSettings.BaseSiteDefinitionTemplateItem;
 
             //Check to see if Item is made of Template we want, else dig further.
@@ -90,6 +92,7 @@ namespace Sitecore.SharedSource.DynamicSites.Utilities
 
         private static bool HasBaseTemplate([NotNull] TemplateItem item)
         {
+            if (item == null) return false;
             var template = DynamicSiteSettings.BaseSiteDefinitionTemplateItem;
             
             //Get List of Existing Base Templates

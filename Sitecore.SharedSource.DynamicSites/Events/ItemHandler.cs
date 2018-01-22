@@ -101,7 +101,6 @@ namespace Sitecore.SharedSource.DynamicSites.Events
                 //Skip if current database doesn't keep content items.
                 if (!Context.Database.HasContentItem) return;
 
-                //Reset Cache if Item is Dynamic Site.
                 ResetDynamicSitesCache(item);
 
                 //If Item being saved is the Dynamic Site Settings Item, Make Updates
@@ -122,6 +121,18 @@ namespace Sitecore.SharedSource.DynamicSites.Events
             {
                 Log.Error($"[DynamicSites] Error: {e.Message} \r\n Stack: {e.StackTrace}",e);
             }
+        }
+
+        private void ResetDynamicSitesCache([NotNull] Item item)
+        {
+            //Is Module Disabled at the config level?
+            if (DynamicSiteSettings.Disabled) return;
+
+            //If Item being deleted is a Dynamic Site, clear the Dynamic Site cache.
+            if (!DynamicSiteManager.HasBaseTemplate(item)) return;
+
+            DynamicSiteManager.PublishItemChanges(item);
+            DynamicSiteManager.ClearCache();
         }
 
         private static void DoBaseTemplateUpdates([NotNull] Item item, ItemChanges itemChanges)
@@ -162,18 +173,6 @@ namespace Sitecore.SharedSource.DynamicSites.Events
 
             if (oldTemplateItem != null)
                 DynamicSiteManager.RemoveBaseTemplate(oldTemplateItem);
-        }
-
-        private void ResetDynamicSitesCache([NotNull] Item item)
-        {
-            //Is Module Disabled at the config level?
-            if (DynamicSiteSettings.Disabled) return;
-
-            //If Item being deleted is a Dynamic Site, clear the Dynamic Site cache.
-            if (!DynamicSiteManager.HasBaseTemplate(item)) return;
-
-            DynamicSiteManager.PublishItemChanges(item);
-            DynamicSiteManager.ClearCache();
         }
     }
 }
