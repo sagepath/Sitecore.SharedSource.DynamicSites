@@ -27,7 +27,7 @@ namespace Sitecore.SharedSource.DynamicSites.Events
                 if (DynamicSiteManager.HasBaseTemplate(remoteArgs.Item))
                 {
                     var refreshDynamicSitesEvent = new RefreshDynamicSitesEvent(remoteArgs.Item.ID.Guid);
-                    Log.Info("Queueing refreshDynamicSites:remote event from the OnItemSavedRemote method", new { });
+                    Log.Info("Queueing refreshDynamicSites:remote event from the OnItemSavedRemote method", typeof(ItemRemoteHandler));
                     Event.RaiseEvent("refreshDynamicSites:remote", refreshDynamicSitesEvent);
                 }
             }
@@ -48,7 +48,7 @@ namespace Sitecore.SharedSource.DynamicSites.Events
                 if (DynamicSiteManager.HasBaseTemplate(remoteArgs.Item))
                 {
                     var refreshDynamicSitesEvent = new RefreshDynamicSitesEvent(remoteArgs.Item.ID.Guid);
-                    Log.Info("Queueing refreshDynamicSites:remote event from the OnItemRenamedRemote method", new { });
+                    Log.Info("Queueing refreshDynamicSites:remote event from the OnItemRenamedRemote method", typeof(ItemRemoteHandler));
                     Event.RaiseEvent("refreshDynamicSites:remote", refreshDynamicSitesEvent);
                 }
             }
@@ -69,7 +69,7 @@ namespace Sitecore.SharedSource.DynamicSites.Events
                 if (DynamicSiteManager.HasBaseTemplate(remoteArgs.Item))
                 {
                     var refreshDynamicSitesEvent = new RefreshDynamicSitesEvent(remoteArgs.Item.ID.Guid);
-                    Log.Info("Queueing refreshDynamicSites:remote event from the OnItemDeletedRemote method", new { });
+                    Log.Info("Queueing refreshDynamicSites:remote event from the OnItemDeletedRemote method", typeof(ItemRemoteHandler));
                     Event.RaiseEvent("refreshDynamicSites:remote", refreshDynamicSitesEvent);
                 }
             }

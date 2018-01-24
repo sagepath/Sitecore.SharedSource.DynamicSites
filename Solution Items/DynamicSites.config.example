@@ -62,6 +62,9 @@ Adds:
       <event name="item:renamed">
         <handler type="Sitecore.SharedSource.DynamicSites.Events.ItemHandler, SharedSource.Sitecore.DynamicSites" method="OnItemRenamed" />
       </event>		 
+      <event name="publish:end">
+        <handler type="Sitecore.SharedSource.DynamicSites.Events.PublishEndHandler, SharedSource.Sitecore.DynamicSites" method="OnPublishEnd" />
+      </event>		  	  
 	  <event name="item:saved:remote">
 		<handler type="Sitecore.SharedSource.DynamicSites.Events.ItemRemoteHandler, SharedSource.Sitecore.DynamicSites" method="OnItemSavedRemote" />
 	  </event>

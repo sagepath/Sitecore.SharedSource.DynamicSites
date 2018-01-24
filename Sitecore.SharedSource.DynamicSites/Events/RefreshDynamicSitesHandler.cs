@@ -28,24 +28,10 @@ namespace Sitecore.SharedSource.DynamicSites.Events
             var siteDefinitionId = ((args as SitecoreEventArgs)?.Parameters[0] as RefreshDynamicSitesEvent)?.SiteDefinitionItemId;
             if (siteDefinitionId == null) return;
 
-            var database = DynamicSiteSettings.GetCurrentDatabase;
-                
-            if (database != null)
-            {
-                Log.Info("Clearing the dynamic site cache", this);
-                DynamicSiteManager.ClearCache();
+            Log.Info("Clearing the dynamic site cache", typeof(SiteProviderUtil));
+            DynamicSiteManager.ClearCache();
 
-                var providersCollection = SiteManager.Providers;
-                foreach (var provider in providersCollection)
-                {
-                    if (provider is DynamicSitesProvider)
-                    {
-                        Log.Info("Re-initializing the dynamic sites", this);
-                        (provider as DynamicSitesProvider).GetSites();
-                        break;
-                    }
-                }
-            }
+            SiteProviderUtil.RefreshDynamicSites();
         }
     }
 

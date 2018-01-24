@@ -5,6 +5,7 @@ using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
 using Sitecore.Events;
 using Sitecore.SharedSource.DynamicSites.Items.ModuleSettings;
+using Sitecore.SharedSource.DynamicSites.Sites;
 using Sitecore.SharedSource.DynamicSites.Utilities;
 using Sitecore.StringExtensions;
 
@@ -38,6 +39,10 @@ namespace Sitecore.SharedSource.DynamicSites.Events
             {
                 //Reset Caches
                 ResetDynamicSitesCache(arguments.Item);
+                if (DynamicSiteManager.HasBaseTemplate(arguments.Item))
+                {
+                    SiteProviderUtil.RefreshDynamicSites();
+                }
             }
             catch (NullReferenceException)
             {
@@ -68,6 +73,10 @@ namespace Sitecore.SharedSource.DynamicSites.Events
             {
                 //Reset Caches
                 ResetDynamicSitesCache(arguments.Item);
+                if (DynamicSiteManager.HasBaseTemplate(arguments.Item))
+                {
+                    SiteProviderUtil.RefreshDynamicSites();
+                }
             }
             catch (NullReferenceException)
             {
@@ -112,6 +121,11 @@ namespace Sitecore.SharedSource.DynamicSites.Events
 
                 //Do Base Template Updates to Activate Dynamic Sites
                 DoBaseTemplateUpdates(item, itemChanges);
+
+                if (DynamicSiteManager.HasBaseTemplate(arguments.Item))
+                {
+                    SiteProviderUtil.RefreshDynamicSites();
+                }
             }
             catch (NullReferenceException)
             {
