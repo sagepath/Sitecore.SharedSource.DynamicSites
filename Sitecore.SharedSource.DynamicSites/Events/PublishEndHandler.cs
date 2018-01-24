@@ -33,7 +33,7 @@ namespace Sitecore.SharedSource.DynamicSites.Events
             {
                 if (DynamicSiteManager.HasBaseTemplate(rootItemPublished))
                 {
-                    Log.Info("Clearing the dynamic site cache, invoked by remote:publish:end event", this);
+                    Log.Info("Clearing the dynamic site cache", this);
                     DynamicSiteManager.ClearCache();
 
                     SiteProviderUtil.RefreshDynamicSites();

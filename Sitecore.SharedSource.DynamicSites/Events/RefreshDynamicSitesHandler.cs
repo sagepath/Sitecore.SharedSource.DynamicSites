@@ -28,7 +28,7 @@ namespace Sitecore.SharedSource.DynamicSites.Events
             var siteDefinitionId = ((args as SitecoreEventArgs)?.Parameters[0] as RefreshDynamicSitesEvent)?.SiteDefinitionItemId;
             if (siteDefinitionId == null) return;
 
-            Log.Info("Clearing the dynamic site cache", typeof(SiteProviderUtil));
+            Log.Info("Clearing the dynamic site cache", this);
             DynamicSiteManager.ClearCache();
 
             SiteProviderUtil.RefreshDynamicSites();
