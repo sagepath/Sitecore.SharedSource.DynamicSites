@@ -33,10 +33,9 @@ namespace Sitecore.SharedSource.DynamicSites.Events
             {
                 if (DynamicSiteManager.HasBaseTemplate(rootItemPublished))
                 {
-                    Log.Info("Clearing the dynamic site cache", this);
-                    DynamicSiteManager.ClearCache();
-
-                    SiteProviderUtil.RefreshDynamicSites();
+                    var refreshDynamicSitesEvent = new RefreshDynamicSitesEvent(rootItemPublished.ID.Guid);
+                    Log.Info("Queueing refreshDynamicSites event from the OnPublishEnd method", this);
+                    Event.RaiseEvent("refreshDynamicSites", refreshDynamicSitesEvent);
                 }
             }
         }

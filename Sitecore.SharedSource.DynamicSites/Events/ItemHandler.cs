@@ -42,7 +42,9 @@ namespace Sitecore.SharedSource.DynamicSites.Events
 
                 if (DynamicSiteManager.HasBaseTemplate(arguments.Item))
                 {
-                    SiteProviderUtil.RefreshDynamicSites();
+                    var refreshDynamicSitesEvent = new RefreshDynamicSitesEvent(arguments.Item.ID.Guid);
+                    Log.Info("Queueing refreshDynamicSites event from the OnItemDeleted method", this);
+                    Event.RaiseEvent("refreshDynamicSites", refreshDynamicSitesEvent);
                 }
             }
             catch (NullReferenceException)

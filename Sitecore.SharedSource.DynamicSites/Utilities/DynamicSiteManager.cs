@@ -77,7 +77,7 @@ namespace Sitecore.SharedSource.DynamicSites.Utilities
             var languages = LanguageManager.GetLanguages(DynamicSiteSettings.GetCurrentDatabase);
             if (languages == null || languages.Count == 0) return;
 
-            Log.Audit($"Publish item now: {AuditFormatter.FormatItem(item)}",typeof(DynamicSiteManager));
+            Log.Audit($"Publish item now: {AuditFormatter.FormatItem(item)}", typeof(DynamicSiteManager));
             PublishManager.PublishItem(item, targets, languages.ToArray(), false, true);
         }
 

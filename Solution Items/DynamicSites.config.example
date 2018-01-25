@@ -64,19 +64,19 @@ Adds:
       </event>		 
       <event name="publish:end">
         <handler type="Sitecore.SharedSource.DynamicSites.Events.PublishEndHandler, SharedSource.Sitecore.DynamicSites" method="OnPublishEnd" />
-      </event>		  	  
-	  <event name="item:saved:remote">
-		<handler type="Sitecore.SharedSource.DynamicSites.Events.ItemRemoteHandler, SharedSource.Sitecore.DynamicSites" method="OnItemSavedRemote" />
-	  </event>
-	  <event name="item:deleted:remote">
-		<handler type="Sitecore.SharedSource.DynamicSites.Events.ItemRemoteHandler, SharedSource.Sitecore.DynamicSites" method="OnItemDeletedRemote" />
-	  </event>	  
-	  <event name="item:renamed:remote">
-		<handler type="Sitecore.SharedSource.DynamicSites.Events.ItemRemoteHandler, SharedSource.Sitecore.DynamicSites" method="OnItemRenamedRemote" />
-	  </event>	  
+      </event>		  
+      <event name="refreshDynamicSites">
+        <handler type="Sitecore.SharedSource.DynamicSites.Events.RefreshDynamicSitesHandler, SharedSource.Sitecore.DynamicSites" method="OnRefreshDynamicSites" />
+      </event>  	  
+      <event name="item:deleted:remote">
+        <handler type="Sitecore.SharedSource.DynamicSites.Events.ItemRemoteHandler, SharedSource.Sitecore.DynamicSites" method="OnItemDeletedRemote" />
+      </event>	  
+      <event name="publish:end:remote">
+        <handler type="Sitecore.SharedSource.DynamicSites.Events.PublishEndRemoteHandler, SharedSource.Sitecore.DynamicSites" method="OnPublishEndRemote" />
+      </event>	
       <event name="refreshDynamicSites:remote">
         <handler type="Sitecore.SharedSource.DynamicSites.Events.RefreshDynamicSitesHandler, SharedSource.Sitecore.DynamicSites" method="OnRefreshDynamicSites" />
-      </event>  
+      </event>  	  
     </events>
     <pipelines>
       <getLookupSourceValueLists>

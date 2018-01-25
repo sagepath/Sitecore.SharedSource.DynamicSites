@@ -31,7 +31,16 @@ namespace Sitecore.SharedSource.DynamicSites.Events
             Log.Info("Clearing the dynamic site cache", this);
             DynamicSiteManager.ClearCache();
 
-            SiteProviderUtil.RefreshDynamicSites();
+            var providersCollection = SiteManager.Providers;
+            foreach (var provider in providersCollection)
+            {
+                if (provider is DynamicSitesProvider)
+                {
+                    Log.Info("Re-initializing the dynamic sites", this);
+                    (provider as DynamicSitesProvider).GetSites();
+                    break;
+                }
+            }
         }
     }
 
