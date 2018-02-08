@@ -227,9 +227,18 @@ namespace Sitecore.SharedSource.DynamicSites.Utilities
                 properties["enableAnalytics"] = item.EnableAnalytics.Checked.ToString();
                 
                 //Custom Properties
-                if (item.Properties.ToStringDictionary.Count> 0)
-                    properties.AddRange(item.Properties.ToStringDictionary);
-                
+                var propertyDict = item.Properties.ToStringDictionary;
+                if (propertyDict.Count > 0)
+                {
+                    foreach (var propertyPair in propertyDict)
+                    {
+                        //handle double underscore dot replacement
+                        var key = propertyPair.Key.Replace("__", ".");
+                        var value = propertyPair.Value;
+                        properties.Add(key, value);
+                    }
+                }
+
                 var newSite = new Site(CleanCacheKeyName(item.Name), properties);
                 return newSite;
             }
