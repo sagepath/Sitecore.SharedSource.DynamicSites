@@ -221,10 +221,10 @@ namespace Sitecore.SharedSource.DynamicSites.Utilities
                 if (!item.Inherit.Value.IsNullOrEmpty())
                     properties["inherits"] = item.Inherit.Value;
 
-                properties["cacheHtml"] = item.CacheHtml.Checked.ToString();
-                properties["cacheMedia"] = item.CacheMedia.Checked.ToString();
-                properties["enableDebugger"] = item.EnableDebugger.Checked.ToString();
-                properties["enableAnalytics"] = item.EnableAnalytics.Checked.ToString();
+                properties["cacheHtml"] = item.CacheHtml.Checked.ToString().ToLower();
+                properties["cacheMedia"] = item.CacheMedia.Checked.ToString().ToLower();
+                properties["enableDebugger"] = item.EnableDebugger.Checked.ToString().ToLower();
+                properties["enableAnalytics"] = item.EnableAnalytics.Checked.ToString().ToLower();
                 
                 //Custom Properties
                 var propertyDict = item.Properties.ToStringDictionary;
@@ -247,7 +247,6 @@ namespace Sitecore.SharedSource.DynamicSites.Utilities
                 Log.Error($"Error Creating Dynamic Site Definition: {e.Message}\r\n{e.StackTrace}",e);
                 return null;
             }
-
         }
 
         public static List<KeyValuePair<string, Site>> GetDynamicSitesDictionary(Site defaultSite)

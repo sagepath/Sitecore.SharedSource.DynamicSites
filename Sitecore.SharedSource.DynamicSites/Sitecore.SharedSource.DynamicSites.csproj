@@ -85,15 +85,8 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>copy /y "$(ProjectDir)bin\SharedSource.Sitecore.DynamicSites.dll" "C:\sitecore\gstar\Website\bin"
-copy /y "$(ProjectDir)bin\SharedSource.Sitecore.DynamicSites.pdb" "C:\sitecore\gstar\Website\bin"
-copy /y "$(ProjectDir)bin\SharedSource.Sitecore.ValueListField.dll" "C:\sitecore\gstar\Website\bin"
-copy /y "$(ProjectDir)bin\SharedSource.Sitecore.DynamicSites.dll" "C:\sitecore\gstarcd\Website\bin"
-copy /y "$(ProjectDir)bin\SharedSource.Sitecore.DynamicSites.pdb" "C:\sitecore\gstarcd\Website\bin"
-copy /y "$(ProjectDir)bin\SharedSource.Sitecore.ValueListField.dll" "C:\sitecore\gstarcd\Website\bin"
-copy /y "$(ProjectDir)bin\SharedSource.Sitecore.DynamicSites.dll" "C:\sitecore\greystar2\Website\bin"
-copy /y "$(ProjectDir)bin\SharedSource.Sitecore.DynamicSites.pdb" "C:\sitecore\greystar2\Website\bin"
-copy /y "$(ProjectDir)bin\SharedSource.Sitecore.ValueListField.dll" "C:\sitecore\greystar2\Website\bin"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
