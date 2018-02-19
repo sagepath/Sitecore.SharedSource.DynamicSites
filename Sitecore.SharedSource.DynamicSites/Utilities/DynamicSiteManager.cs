@@ -230,13 +230,16 @@ namespace Sitecore.SharedSource.DynamicSites.Utilities
                 var propertyDict = item.Properties.ToStringDictionary;
                 if (propertyDict.Count > 0)
                 {
+                    var newDict = new StringDictionary();
                     foreach (var propertyPair in propertyDict)
                     {
                         //handle double underscore dot replacement
                         var key = propertyPair.Key.Replace("__", ".");
                         var value = propertyPair.Value;
-                        properties.Add(key, value);
+                        newDict.Add(key, value);
                     }
+
+                    properties.AddRange(newDict);
                 }
 
                 var newSite = new Site(CleanCacheKeyName(item.Name), properties);
